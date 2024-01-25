@@ -1,3 +1,4 @@
+using Application;
 using ECommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -14,6 +15,11 @@ namespace ECommerce.Controllers
 		}
 
 		public IActionResult Index()
+		{
+			return View();
+		}
+
+		public IActionResult Detail(Guid id)
 		{
 			return View();
 		}
