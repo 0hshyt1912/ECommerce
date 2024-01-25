@@ -19,6 +19,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddService();
 builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
 builder.Services.AddScoped(typeof(IRepository<,>), typeof(EfRepository<,>));
+
+
+//config session
+builder.Services.AddSession(options =>
+{
+	options.IdleTimeout = TimeSpan.FromHours(1);
+	options.Cookie.HttpOnly = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
